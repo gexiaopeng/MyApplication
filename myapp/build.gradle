@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+   // buildToolsVersion "28.0.0"  //28.0.0
+    defaultConfig {
+        applicationId "com.example.administrator.myapplication"
+        minSdkVersion 19  //19
+        targetSdkVersion 27  // 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        //exclude 'META-INF/services/javax.annotation.processing.Processor'
+        //pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.properties'
+        //pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.xml'
+        //pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.properties'
+        // pickFirst 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.xml'
+
+        //exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.properties'
+        exclude 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.properties'
+        exclude 'META-INF/maven/org.bytedeco.javacpp-presets/opencv/pom.xml'
+        exclude 'META-INF/maven/org.bytedeco.javacpp-presets/ffmpeg/pom.xml'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    //compile 'com.android.support:appcompat-v7:23.+'
+    // compile files('libs/javacpp.jar')
+    // compile files('libs/javacv.jar')
+    //compile files('libs/opencv-android-arm.jar')
+    // compile files('libs/opencv.jar')
+    //compile  'org.bytedeco:javacv:1.1'
+    //compile  'org.bytedeco.javacpp-presets:opencv:3.0.0-1.1:android-arm'
+    // compile  'org.bytedeco.javacpp-presets:ffmpeg:2.8.1-1.1:android-arm'
+
+    implementation 'org.bytedeco:javacv:1.4.2'
+    implementation 'org.bytedeco.javacpp-presets:opencv:3.4.2-1.4.2:android-arm'
+    implementation 'org.bytedeco.javacpp-presets:ffmpeg:4.0.1-1.4.2:android-arm'
+}
