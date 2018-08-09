@@ -78,7 +78,7 @@ public class MyRtspActivity extends AppCompatActivity implements TextureView.Sur
                             //previewHandler.post(drawPreviewRun);
                             runUiThread();
                           // drawBitmap();
-                            text1.setText("\r\n帧："+bitmap.getWidth()+","+bitmap.getHeight()+"|"+(++seq));
+                           // text1.setText("\r\n帧："+bitmap.getWidth()+","+bitmap.getHeight()+"|"+(++seq));
                         } else {
                             grabber.restart();
                             text1.setText("\r\n没有帧："+(++seq));
